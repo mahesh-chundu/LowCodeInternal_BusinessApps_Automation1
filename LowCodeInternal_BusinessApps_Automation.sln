@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33712.159
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LowCodeInternal_BusinessApps_Automation", "LowCodeInternal_BusinessApps_Automation.csproj", "{665C4DB3-C169-4C69-9F3E-88BC52C9F044}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{665C4DB3-C169-4C69-9F3E-88BC52C9F044}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{665C4DB3-C169-4C69-9F3E-88BC52C9F044}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{665C4DB3-C169-4C69-9F3E-88BC52C9F044}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{665C4DB3-C169-4C69-9F3E-88BC52C9F044}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8145BAD1-C7E7-4AAF-AAC5-C25828D94C67}
+	EndGlobalSection
+EndGlobal
