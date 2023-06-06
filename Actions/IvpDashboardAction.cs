@@ -9,6 +9,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using static LowCodeInternal_BusinessApps_Automation.Common.BasePage;
 using LowCodeInternal_BusinessApps_Automation.TestData;
+using LowCodeInternal_BusinessApps_Automation.Common;
 
 namespace LowCodeInternal_BusinessApps_Automation.Actions
 {
@@ -18,6 +19,7 @@ namespace LowCodeInternal_BusinessApps_Automation.Actions
         {
             DriverManager.driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
             AddNewProgram_Button?.Click();
+            TakeScreenshot.Screenshot();
             return this;
         }
         

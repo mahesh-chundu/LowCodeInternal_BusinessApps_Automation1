@@ -22,10 +22,18 @@ namespace LowCodeInternal_BusinessApps_Automation.Actions
         private string inputValue;
         internal CreateIvpProgramAction Approval() 
         {
-            Data data = JsonDataProvider.GetData();
-            SelectElement dropdown = new SelectElement(approval);
-            dropdown.SelectByValue(data?.Approval);
-            return this;
+            try
+            {
+                Data data = JsonDataProvider.GetData();
+                SelectElement dropdown = new SelectElement(approval);
+                dropdown.SelectByValue(data?.Approval);
+                return this;
+            }
+            catch(Exception ex)
+            {
+                ErrorLog.ErrorMessage(ex);
+                return this;
+            }
         }
         internal CreateIvpProgramAction Status()
         {
@@ -44,10 +52,19 @@ namespace LowCodeInternal_BusinessApps_Automation.Actions
         }
         internal CreateIvpProgramAction ShipEndDate()
         {
-            Data data = JsonDataProvider.GetData();
-            WaitHelper.WaitForElement(DriverManager.driver, 10);
-            shipEndDate?.SendKeys(data?.EndDate);
-            return this;
+            try
+            {
+                Data data = JsonDataProvider.GetData();
+                WaitHelper.WaitForElement(DriverManager.driver, 10);
+                shipEndDate?.SendKeys(data?.EndDate);
+                return this;
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.ErrorMessage(ex);
+                TakeScreenshot.Screenshot();
+                return this;
+            }
         }
         internal CreateIvpProgramAction Year()
         {

@@ -23,7 +23,9 @@ namespace LowCodeInternal_BusinessApps_Automation.Actions
             DriverManager.driver.Manage().Window.Maximize();
             DriverManager.driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
             oktaUsername?.SendKeys(data?.Username);
+            TakeScreenshot.Screenshot();
             oktaPassword?.SendKeys(data?.Password);
+            TakeScreenshot.Screenshot();
             oktaSubmit?.Click();
             return this;
         }
