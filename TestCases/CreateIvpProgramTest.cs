@@ -8,18 +8,22 @@ using LowCodeInternal_BusinessApps_Automation.Actions;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using MyExtensionMethods;
-using MyMethods;
 using static LowCodeInternal_BusinessApps_Automation.Common.BasePage;
-using LowCodeInternal_BusinessApps_Automation.Common;
+using log4net;
+using log4net.Config;
 
 namespace LowCodeInternal_BusinessApps_Automation.TestCases
 {
-    internal class CreateIvpProgramTest
+    [TestFixture]
+    public class CreateIvpProgramTest
     {
+        private static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        
         CreateIvpProgramAction CurrentPage = new CreateIvpProgramAction();
         [SetUp]
         public void QA123_Login()
         {
+            XmlConfigurator.Configure(new FileInfo("log4net.config"));
             LoginPage_OktaPreview_ActionPage Okta = new LoginPage_OktaPreview_ActionPage();
             Okta.Login();
         }
@@ -31,12 +35,14 @@ namespace LowCodeInternal_BusinessApps_Automation.TestCases
         [Test]
         public void QA124_AddNewProgram()
         {
+            Log.Info("Click on Add new Program Button");
             IvpDashboardAction ivpDashboardTest = new IvpDashboardAction();
             ivpDashboardTest.IVPAddNewProgram();
         }
         [Test]
         public void QA125_CreateProgram()
         {
+            Log.Info("Create a New Program for IVP");
             QA124_AddNewProgram();
             CurrentPage.As<CreateIvpProgramAction>().Approval();
             CurrentPage.As<CreateIvpProgramAction>().Status();
@@ -73,6 +79,7 @@ namespace LowCodeInternal_BusinessApps_Automation.TestCases
         [Test]
         public void QA127_DashboardSearch()
         {
+            Log.Info("Search for a program in the Dashboard");
             CurrentPage.As<CreateIvpProgramAction>().DashboardYearFilter();
             CurrentPage.As<CreateIvpProgramAction>().DashboardStatusFilter();
             CurrentPage.As<CreateIvpProgramAction>().ClickExistingProgramLink();
@@ -82,6 +89,7 @@ namespace LowCodeInternal_BusinessApps_Automation.TestCases
         [Test]
         public void QA129_AddNotes() 
         {
+            Log.Info("Adding a Note in the Program");
             CurrentPage.As<CreateIvpProgramAction>().DashboardYearFilter();
             CurrentPage.As<CreateIvpProgramAction>().DashboardStatusFilter();
             CurrentPage.As<CreateIvpProgramAction>().ScrollDown();
@@ -93,6 +101,7 @@ namespace LowCodeInternal_BusinessApps_Automation.TestCases
         [Test]
         public void QA130_SelectExistingRebate()
         {
+            Log.Info("Select the Existing Rebate and performing Action on it");
             CurrentPage.As<CreateIvpProgramAction>().DashboardYearFilter();
             CurrentPage.As<CreateIvpProgramAction>().DashboardStatusFilter();
             CurrentPage.As<CreateIvpProgramAction>().ClickExistingProgramLink();
